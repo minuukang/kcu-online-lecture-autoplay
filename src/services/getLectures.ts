@@ -9,7 +9,7 @@ export function getLectures(context: BrowserContext, page: Frame) {
       const rowCount = await rows.count();
       for (let i = 0; i < rowCount; i++) {
         const row = await rows.nth(i);
-        const title = await row.locator("td:nth-child(3)").textContent();
+        const title = await row.locator("> td:nth-child(3)").textContent();
         const enterButton = row.locator(".btn-lec-play-stu");
         const enterButtonText = (await enterButton.textContent())?.trim();
         if (enterButtonText === "수강하기") {
